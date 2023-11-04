@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 WebBrowser.maybeCompleteAuthSession();
 
 function GoogleLogin() {
@@ -17,6 +18,10 @@ function GoogleLogin() {
   const [request, response, promptAsync] = Google.useAuthRequest({
     webClientId:
       "1098165106971-09kojrroftco5u5sbukm2u5tqlqqsnqj.apps.googleusercontent.com",
+    iosClientId:
+      "1098165106971-8fsdum3316n49rm5f9kh3h12n286c1u1.apps.googleusercontent.com",
+    androidClientId:
+      "1098165106971-26vs6i9mgkvcukv15fm4772kg1mnk170.apps.googleusercontent.com",
   });
 
   const handleSignInWithGoogle = async () => {
