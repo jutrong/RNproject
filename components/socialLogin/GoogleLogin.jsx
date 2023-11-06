@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View, Button } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useState, useEffect } from "react";
 import * as WebBrowser from "expo-web-browser";
@@ -21,7 +21,7 @@ function GoogleLogin() {
     iosClientId:
       "1098165106971-8fsdum3316n49rm5f9kh3h12n286c1u1.apps.googleusercontent.com",
     androidClientId:
-      "1098165106971-26vs6i9mgkvcukv15fm4772kg1mnk170.apps.googleusercontent.com",
+      "1098165106971-dil5mt8pbdm0oprunktquhmol339jefd.apps.googleusercontent.com",
   });
 
   const handleSignInWithGoogle = async () => {
@@ -61,6 +61,7 @@ function GoogleLogin() {
 
   return (
     <View style={styles.container}>
+      <Text>{JSON.stringify(userInfo)}</Text>
       <Pressable
         style={[styles.button, styles.buttonGoogle]}
         onPress={() => {
@@ -72,6 +73,12 @@ function GoogleLogin() {
           <Text style={styles.buttonText}>Login With Google</Text>
         </View>
       </Pressable>
+      <Button
+        title="logout"
+        onPress={() => {
+          AsyncStorage.removeItem("@user");
+        }}
+      ></Button>
     </View>
   );
 }
